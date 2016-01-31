@@ -4,4 +4,15 @@
 
     <string name="action_refresh" translatable="false">Refresh</string>
     <string name="empty_forecast_list">No Weather Information Available</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_location_label">Location</string>
+    <string name="pref_location_key" translatable="false">location</string>
+    <string name="pref_location_default" translatable="false">94043</string>
+
 </resources>
