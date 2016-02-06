@@ -41,9 +41,6 @@ public class ForecastFragment extends Fragment {
 
     private ArrayAdapter<String> mForecastAdapter;
 
-    public ForecastFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,16 +159,19 @@ public class ForecastFragment extends Fragment {
          */
         private String formatHighLows(double high, double low, String unitType) {
 
+            double mHigh = high;
+            double mLow = low;
+
             if (unitType.equals(getString(R.string.pref_units_imperial))) {
-                high = (high * 1.8) + 32;
-                low = (low * 1.8) + 32;
+                mHigh = (mHigh * 1.8) + 32;
+                mLow = (mLow * 1.8) + 32;
             } else if (!unitType.equals(getString(R.string.pref_units_metric))) {
                 Log.d(LOG_TAG, "Unit type not found: " + unitType);
             }
 
             // For presentation, assume the user doesn't care about tenths of a degree.
-            long roundedHigh = Math.round(high);
-            long roundedLow = Math.round(low);
+            long roundedHigh = Math.round(mHigh);
+            long roundedLow = Math.round(mLow);
 
             String highLowStr = roundedHigh + "/" + roundedLow;
             return highLowStr;

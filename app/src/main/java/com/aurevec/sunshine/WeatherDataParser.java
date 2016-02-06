@@ -16,7 +16,7 @@ public class WeatherDataParser {
 
     private final String LOG_TAG = WeatherDataParser.class.getName();
 
-    String weatherJsonString;
+    private String weatherJsonString;
 
     public WeatherDataParser(String weatherJsonString) {
         this.weatherJsonString = weatherJsonString;
