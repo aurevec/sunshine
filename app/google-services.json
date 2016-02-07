@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_id": "sunshine-a96e7",
+    "project_number": "229441648522",
+    "name": "Sunshine"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229441648522:android:aa89a65a73512658",
+        "client_id": "android:com.aurevec.sunshine",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.aurevec.sunshine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-73426915-1"
+          }
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

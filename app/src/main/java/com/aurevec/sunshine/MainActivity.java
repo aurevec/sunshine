@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
 
 import org.json.JSONException;
@@ -17,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
 
     private final String LOG_TAG = MainActivity.class.getSimpleName();
 
+    private final String SCREEN_NAME = MainActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Mixpanel
         String projectToken = BuildConfig.MIXPANEL_API_KEY;
         MixpanelAPI mixpanel = MixpanelAPI.getInstance(this, projectToken);
 
@@ -32,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Unable to add properties to JSONObject", e);
         }
+
+        //Google Analytics
+        Tracker mTracker;
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
+        Log.i(LOG_TAG, "Setting screen name: " + SCREEN_NAME);
+        mTracker.setScreenName("Image~" + SCREEN_NAME);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Display")
+                .setAction("View")
+                .build());
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
